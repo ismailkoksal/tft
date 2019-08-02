@@ -1,5 +1,7 @@
 {
   "name": "tftcompagnon",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

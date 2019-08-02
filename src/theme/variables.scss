@@ -74,4 +74,73 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** very dark blue **/
+  --ion-color-verydarkblue: #14181D;
+  --ion-color-verydarkblue-rgb: 20,24,29;
+  --ion-color-verydarkblue-contrast: #ffffff;
+  --ion-color-verydarkblue-contrast-rgb: 255,255,255;
+  --ion-color-verydarkblue-shade: #12151a;
+  --ion-color-verydarkblue-tint: #2c2f34;
+
+  --ion-background-color: #111217;
+  --ion-background-color-rgb: 17,18,23;
+
+  --ion-text-color: #F0E6D2;
+  --ion-text-color-rgb: 240,230,210;
+
+  --ion-color-step-50: #1c1d20;
+  --ion-color-step-100: #27272a;
+  --ion-color-step-150: #323233;
+  --ion-color-step-200: #3e3c3c;
+  --ion-color-step-250: #494746;
+  --ion-color-step-300: #54524f;
+  --ion-color-step-350: #5f5c58;
+  --ion-color-step-400: #6a6762;
+  --ion-color-step-450: #75716b;
+  --ion-color-step-500: #817c75;
+  --ion-color-step-550: #8c877e;
+  --ion-color-step-600: #979187;
+  --ion-color-step-650: #a29c91;
+  --ion-color-step-700: #ada69a;
+  --ion-color-step-750: #b8b1a3;
+  --ion-color-step-800: #c3bcad;
+  --ion-color-step-850: #cfc6b6;
+  --ion-color-step-900: #dad1bf;
+  --ion-color-step-950: #e5dbc9;
+}
+
+@font-face {
+  font-family: 'BeaufortLOL';
+  src: url("../assets/fonts/BeaufortforLOL-Regular.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+ion-toolbar {
+  --background: #1D232B;
+  --border-color: #483310;
+  --border-style: solid;
+  --border-width: 0 0 2px 0 !important;
+  --color: #F0E6D2;
+}
+
+ion-content {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --padding-top: 15px;
+}
+
+ion-tab-bar {
+  --background: #1D232B;
+  --border: solid 2px #483310;
+}
+
+ion-tab-button {
+  --color: #645F4C;
+  --color-selected: #966B22;
+}
+
+ion-back-button {
+  --color: #C89B3C !important;
 }

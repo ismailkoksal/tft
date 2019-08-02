@@ -5,7 +5,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  { path: 'champion/:key', loadChildren: './pages/champions/single-champion/single-champion.module#SingleChampionPageModule' }
 ];
 @NgModule({
   imports: [

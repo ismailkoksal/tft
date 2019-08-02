@@ -1,0 +1,165 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" defaultHref="/tabs/champions" routerLink="/tabs/champions"
+											 routerDirection="back"></ion-back-button>
+		</ion-buttons>
+		<ion-title *ngIf="champions">{{ champions[key].name }}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="container" *ngIf="champions && items">
+		<div class="inner">
+			<div class="championInfo">
+				<div class="championIntoLeft">
+					<div class="championCutoutFrame">
+						<div class="championCutout">
+							<div class="cutoutBase"></div>
+							<div class="cutoutChampion"
+									 [ngStyle]="{'background-image' : 'url(https://solomid-resources.s3.amazonaws.com/blitz/tft/champion_cutouts/' + key + '.png)'}"></div>
+						</div>
+					</div>
+				</div>
+				<div class="championStats">
+					<div class="statRow">
+						<div class="stat">
+							<div class="statTitle">Health</div>
+							<p class="statValue">{{ champions[key].stats.defense.health }}</p>
+						</div>
+						<div class="stat">
+							<div class="statTitle">Armor</div>
+							<p class="statValue">{{ champions[key].stats.defense.health }}</p>
+						</div>
+					</div>
+					<div class="statRow">
+						<div class="stat">
+							<div class="statTitle">Magic resist</div>
+							<p class="statValue">{{ champions[key].stats.defense.magicResist }}</p>
+						</div>
+						<div class="stat">
+							<div class="statTitle">Atk damage</div>
+							<p class="statValue">{{ champions[key].stats.offense.damage }}</p>
+						</div>
+					</div>
+					<div class="statRow">
+						<div class="stat">
+							<div class="statTitle">Atk speed</div>
+							<p class="statValue">{{ champions[key].stats.offense.attackSpeed }}</p>
+						</div>
+						<div class="stat">
+							<div class="statTitle">Range</div>
+							<p class="statValue">{{ champions[key].stats.offense.range }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="championAbility">
+				<div class="abilityInfo">
+					<img class="abilityImage"
+							 src="https://solomid-resources.s3.amazonaws.com/blitz/tft/champion_abilities/{{ key }}.png">
+					<div class="abilityTitle">
+						<span class="abilityType">
+							<span>{{ champions[key].ability.type }}</span>
+							<span>Cost</span>
+						</span>
+						<h3 class="abilityName">
+							<span>{{ champions[key].ability.name }}</span>
+							<span>
+								<span class="manaStart">{{ champions[key].ability.manaStart }} / </span>
+								<span class="abilityCost">{{ champions[key].ability.manaCost }}</span>
+							</span>
+						</h3>
+					</div>
+					<div class="abilityDescription">{{ champions[key].ability.description }}</div>
+					<div class="abilityStat">
+						<span class="abilityStatName">{{ champions[key].ability.stats[0].type }}</span>
+						<span class="abilityStatValue">{{ champions[key].ability.stats[0].value }}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="championBackground"
+				 [ngStyle]="{'background' : 'url(https://solomid-resources.s3.amazonaws.com/blitz/centered/' + key + '_Splash_Centered_0.jpg) 30% 40% no-repeat'}"></div>
+	</div>
+
+	<div class="container" *ngIf="champions && items">
+		<div class="header">
+			<div class="headerTitle">{{ champions[key].name }}'s Best Items</div>
+		</div>
+		<div class="inner">
+			<div class="item" *ngFor="let item of champions[key].items">
+				<img class="itemImage" src="https://solomid-resources.s3.amazonaws.com/blitz/tft/items/{{ item }}.png">
+				<div class="info">
+					<p class="name">{{ items[item].name }}</p>
+					<div class="itemStats">
+						<!--<div class="itemStat">
+							 SVG HERE
+							<p class="itemStatText"></p>
+						</div>-->
+						<p class="description" [innerHTML]="items[item].bonus"></p>
+						<div class="recipe">
+							<div class="ingredient" *ngFor="let ingredient of items[item].buildsFrom">
+								<img class="ingredientImage"
+										 src="https://solomid-resources.s3.amazonaws.com/blitz/tft/items/{{ ingredient }}.png">
+								<span class="ingredientName">{{ items[item].name }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" *ngIf="champions">
+		<div class="header">
+			<div class="headerTitle">Synergies</div>
+		</div>
+		<div class="inner">
+			<div *ngFor="let class of champions[key].class">
+				<div class="typesHeader">
+					<div class="cardElementHeader">{{ class }}</div>
+				</div>
+				<ion-grid class="typeChampions">
+					<ion-row>
+						<a class="champItem" *ngFor="let champion of getChampionsByClass(class)"
+							 routerLink="/champion/{{ champion }}">
+							<div class="champImageFrameOuter">
+								<div class="champImageFrame">
+									<img class="champImage"
+											 src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/champion/{{ champion }}.png">
+								</div>
+								<div class="tierRing" [ngStyle]="{'background': tierRing[champions[champion].cost - 1]}"></div>
+								<span class="champCost"
+											[ngStyle]="{'background': tierRing[champions[champion].cost - 1]}">$ {{ champions[champion].cost }}</span>
+							</div>
+							<p class="champName">{{ champions[champion].name }}</p>
+						</a>
+					</ion-row>
+				</ion-grid>
+			</div>
+			<div *ngFor="let origin of champions[key].origin">
+				<div class="typesHeader">
+					<div class="cardElementHeader">{{ origin }}</div>
+				</div>
+				<ion-grid class="typeChampions">
+					<ion-row>
+						<a class="champItem" *ngFor="let champion of getChampionsByOrigin(origin)"
+							 routerLink="/champion/{{ champion }}">
+							<div class="champImageFrameOuter">
+								<div class="champImageFrame">
+									<img class="champImage"
+											 src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/champion/{{ champion }}.png">
+								</div>
+								<div class="tierRing" [ngStyle]="{'background': tierRing[champions[champion].cost - 1]}"></div>
+								<span class="champCost"
+											[ngStyle]="{'background': tierRing[champions[champion].cost - 1]}">$ {{ champions[champion].cost }}</span>
+							</div>
+							<p class="champName">{{ champions[champion].name }}</p>
+						</a>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>

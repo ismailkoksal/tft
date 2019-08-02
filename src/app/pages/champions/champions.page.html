@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Champions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let champion of champions | keyvalue" routerLink="/champion/{{ champion?.key }}">
+      <img class="champImage" src="https://ddragon.leagueoflegends.com/cdn/9.13.1/img/champion/{{ champion?.key }}.png" [alt]="champion?.key">
+      <ion-label style="margin-left: 11px;">
+        {{ champion?.value.name }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

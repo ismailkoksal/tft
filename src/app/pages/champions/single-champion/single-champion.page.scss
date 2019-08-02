@@ -1,0 +1,413 @@
+.container {
+  margin-bottom: 16px;
+  position: relative;
+  background: var(--ion-color-verydarkblue);
+  border-radius: 5px;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+}
+
+.championBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  opacity: 0.15;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.championBackground:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to top, var(--ion-color-verydarkblue) 0%, transparent 100%);
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(229, 235, 239, 0.05) 0px -1px inset;
+  min-height: 44px;
+  background: linear-gradient(to top, rgb(39, 54, 82) 0%, rgb(32, 43, 67) 100%);
+  border-radius: 5px 5px 0 0;
+  padding: 0 24px;
+}
+
+.headerTitle {
+  color: #C89B3C;
+  font-size: 14px;
+}
+
+.championInfo {
+  display: flex;
+  margin-bottom: 48px;
+}
+
+.championIntoLeft {
+  width: 139px;
+  position: relative;
+}
+
+.championCutoutFrame {
+  position: relative;
+  width: 110px;
+  height: 170px;
+}
+
+.championCutout {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: -30px;
+  left: -52px;
+  pointer-events: none;
+  background-repeat: no-repeat;
+}
+
+.cutoutBase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  background: url(https://solomid-resources.s3.amazonaws.com/blitz/tft/champion_cutouts/base.png) center center / 200px no-repeat;
+}
+
+.cutoutChampion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: 200px;
+}
+
+.championStats {
+}
+
+.statRow {
+  display: flex;
+  padding: 0 12px;
+  margin-bottom: 24px;
+}
+
+.statRow:last-of-type {
+  margin-bottom: 0;
+}
+
+.stat {
+  width: 85.41px;
+}
+
+.statTitle {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgb(121, 134, 163);
+  margin-bottom: 2px;
+}
+
+.statValue {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  color: rgb(229, 235, 239);
+}
+
+.styledIcon {
+  margin-top: -4px;
+  margin-right: 6px;
+  height: 12px;
+  width: 12px;
+  fill: rgb(32, 153, 93);
+}
+
+.championAbility {
+  background: var(--ion-color-verydarkblue-shade);
+  border-radius: 5px;
+}
+
+.abilityInfo {
+  position: relative;
+  z-index: 1;
+  padding: 16px 16px 16px 36px;
+}
+
+.abilityImage {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 12px;
+  left: -16px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.abilityTitle {
+  margin-bottom: 8px;
+}
+
+.abilityType {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgb(121, 134, 163);
+}
+
+.abilityName {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: rgb(229, 235, 239);
+  margin: 0;
+}
+
+.manaStart {
+  color: rgb(52, 63, 87);
+}
+
+.abilityCost {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: rgb(229, 235, 239);
+}
+
+.abilityDescription {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgb(187, 201, 224);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.abilityStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.abilityStatName {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgb(229, 235, 239);
+}
+
+.abilityStatValue {
+  color: rgb(229, 235, 239);
+  text-align: right;
+  font-weight: 400;
+}
+
+.item {
+  display: flex;
+  line-height: 1.5;
+  font-size: 12px;
+  color: rgb(187, 201, 224);
+  margin-bottom: 40px;
+}
+
+.item:last-of-type {
+  margin: 0;
+}
+
+.itemImage {
+  box-sizing: border-box;
+  display: block;
+  height: 36px;
+  width: 36px;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 1px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(19, 28, 46);
+  border-image: initial;
+  background: rgb(19, 28, 46);
+  border-radius: 5px;
+}
+
+.info {
+  padding-left: 12px;
+}
+
+.name {
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  color: #C89B3C;
+  margin: 0;
+}
+
+.itemStats {
+  margin-bottom: 8px;
+}
+
+.itemStat {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  font-size: 12px;
+}
+
+.description {
+  margin: 0 0 8px;
+}
+
+.recipe {
+  display: flex;
+}
+
+.ingredient {
+  display: flex;
+  margin-right: 8px;
+  background: var(--ion-color-verydarkblue-shade);
+  border-radius: 5px;
+}
+
+.ingredientImage {
+  height: 20px;
+  width: 20px;
+  border-radius: 5px 0 0 5px;
+}
+
+.ingredientName {
+  box-sizing: border-box;
+  white-space: nowrap;
+  max-width: 88px;
+  text-overflow: ellipsis;
+  padding: 2px 10px 0 6px;
+  overflow: hidden;
+}
+
+.typesHeader {
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.cardElementHeader {
+  margin-left: 4px;
+  font-size: 10px;
+  line-height: 1;
+  color: rgb(121, 134, 163);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.typeChampions {
+  margin-bottom: 16px;
+}
+
+.typeChampions:last-of-type {
+  margin: 0;
+}
+
+.champItem {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 71.34px;
+  padding: 0;
+  border-radius: 5px;
+  margin: 0 4px 4px 0;
+  text-decoration: none;
+}
+
+.champImageFrameOuter {
+  position: relative;
+}
+
+.champImageFrame {
+  box-sizing: border-box;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(19, 28, 46);
+  border-image: initial;
+}
+
+.champImage {
+  display: block;
+  height: 66px;
+  width: 66px;
+  min-height: 66px;
+  min-width: 66px;
+}
+
+.tierRing {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 62px;
+  width: 62px;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.champCost {
+  box-sizing: border-box;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  z-index: 1;
+  display: flex;
+  height: 16px;
+  width: 26px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: rgb(229, 235, 239);
+  font-size: 12px;
+  padding-top: 2px;
+  line-height: 1.5;
+  text-shadow: rgba(0, 0, 0, 0.6) 0 1px 0;
+  border-radius: 5px 0;
+}
+
+.champName {
+  text-align: center;
+  color: rgb(187, 201, 224);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 80%;
+  margin: 4px 0 0;
+  overflow: hidden;
+}
